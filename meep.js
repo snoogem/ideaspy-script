@@ -53,7 +53,7 @@ fetch("https://ideaspies.com/user/admin/profile", {
 		  },
 		  "referrer": "https://ideaspies.com/user/admin/profile",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"_token\"\r\n\r\n" + _mToken + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"first_name\"\r\n\r\n" + name + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n" + _mTargetEmail + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"Profile_Picture\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR--\r\n",
+		  "body": "------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"_token\"\r\n\r\n" + _mToken + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"first_name\"\r\n\r\n" + _mName + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n" + _mTargetEmail + "\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR\r\nContent-Disposition: form-data; name=\"Profile_Picture\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundaryPYa5L16IPdEEvuCR--\r\n",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
